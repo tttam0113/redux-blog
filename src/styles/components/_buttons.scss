@@ -1,0 +1,40 @@
+.btn {
+    align-items: center;
+    background-color: $color-primary;
+    border: none;
+    border-radius: 0.4rem;
+    color: $color-on-primary;
+    cursor: pointer;
+    display: inline-flex;
+    font-weight: 600;
+    padding: 0 $button-horizontal-padding 0 $button-horizontal-padding;
+    height: $button-height;
+    min-width: $button-min-width;
+    outline: none;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &--text {
+        background-color: transparent;
+
+        &:hover {
+            background-color: $color-primary-variant;
+        }
+    }
+
+    &--secondary {
+        background-color: $color-secondary;
+        color: $color-on-secondary;
+    }
+
+    &--surface {
+        background-color: $color-surface;
+        color: $color-on-surface;
+    }
+
+    &.btn--secondary:hover {
+        background-color: $color-secondary-variant;
+    }
+
+
+}

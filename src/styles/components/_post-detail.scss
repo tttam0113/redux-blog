@@ -1,0 +1,11 @@
+.blog-post-detail {
+    margin: auto;
+    max-width: 100%;
+    // background-color: $color-surface;
+
+    &__content {
+        background-color: $color-surface;
+        box-shadow: $shadow-1;
+        padding: 1.6rem;
+    }
+}

@@ -1,0 +1,24 @@
+.blog-post-form {
+    background-color: $color-surface;
+    // border-left: 0.4rem solid $color-on-surface;
+    box-shadow: $shadow-1;
+    color: $color-on-surface;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 0.8rem;
+    min-height: 19.6rem;
+    overflow: hidden;
+    width: 96rem;
+
+    &__content {
+        flex: 1;
+        padding: 0.8rem;
+    }
+
+    &__action {
+        margin: 0.8rem;
+        min-height: 5.2rem;
+        padding: 0.8rem;
+        
+    }
+}

@@ -1,0 +1,69 @@
+.blog-posts {
+    margin: auto;
+}
+
+.blog-post-preview-container {
+    background-color: $color-surface;
+    // border-left: 0.4rem solid $color-on-surface;
+    box-shadow: $shadow-1;
+    color: $color-on-surface;
+    margin: 0 auto 0.8rem;
+    min-height: 19.6rem;
+    overflow: hidden;
+    width: 100%;
+
+}
+
+.blog-post-preview {
+    margin: 1.6rem;
+
+    &__title {
+        font-size: 2.1rem;
+        line-height: 2;
+        // margin-bottom: 1.2rem;
+    }
+
+    &__subtitle {
+        color: $color-on-background;
+        font-size: 1.5rem;
+        line-height: 1.4;
+        margin-bottom: 1.6rem;
+    }
+
+    &__media {
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        &-content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            box-sizing: border-box;
+
+            &::before {
+                // This clever trick brought to you by: http://www.mademyday.de/css-height-equals-width-with-pure-css.html
+                margin-top: percentage(9 / 16);
+            }
+        }
+    }
+
+    &__description {
+        margin: 1.6rem 0 2.4rem;
+        font-weight: 400;
+        font-size: 1.7rem;
+    }
+}
+
+.blog-post-action {
+    min-height: 5.2rem;
+    padding: 0.8rem;
+
+    &__button:not(:first-child) {
+        margin-left: 0.8rem;
+
+    }
+}

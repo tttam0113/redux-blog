@@ -1,0 +1,40 @@
+.blog-footer {
+    background-color: $color-primary;
+    // border-bottom: 1px solid $color-on-surface;
+    color: $color-on-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $footer-height;
+    left: 0;
+    padding: 0 1.6rem;
+    right: 0;
+
+    &__content {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2.4rem;
+
+        li:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+
+        svg {
+            // color: $color-secondary;
+            display: block;
+            height: 3.2rem;
+            width: 3.2rem;
+        }
+    }
+
+    p {
+        text-align: center;
+        margin-bottom: 1.3rem;
+    }
+
+    .sub {
+        font-style: italic;
+        font-size: 1.3rem;
+    }
+}

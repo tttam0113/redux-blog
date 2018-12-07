@@ -1,0 +1,48 @@
+.blog-header {
+    background-color: $color-primary;
+    // border-bottom: 1px solid $color-on-surface;
+    box-shadow: $shadow-2;
+    color: $color-on-primary;
+    height: $header-height;
+    left: 0;
+    padding: 0 1.6rem;
+    right: 0;
+
+    &__content {
+        align-items: center;
+        display: flex;
+        flex-grow: 1;
+        height: 100%;
+        justify-content: space-between;
+        max-width: 112rem;
+        margin: 0 auto;
+    }
+
+    &__brand {
+        &--link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        &-title {
+            line-height: 1.2;
+        }
+
+        &-subtitle {
+            font-size: 2rem;
+            color: $color-secondary;
+            line-height: 1;
+            // margin-top: -0.8rem;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        &-item {
+            display: inline-block;
+            margin-left: 1.6rem;
+        }
+
+
+    }
+}
