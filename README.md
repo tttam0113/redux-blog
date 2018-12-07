@@ -7,5 +7,5 @@ I apply redux pattern in this project, using firebase to store data and authenti
 
 I build all middlewares by myself and do not use third-party for middlewares.
 
-Here is demo: 
+Here is demo: https://tttam0113-redux-blog.herokuapp.com/
 
