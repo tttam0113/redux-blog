@@ -1,8 +1,4 @@
 import React from 'react';
-
-// import githubIcon from '../../assets/github-brands.svg';
-// import facebookIcon from '../../assets/facebook-brands.svg';
-// import mailIcon from '../../assets/envelope-solid.svg';
 const GithubIcon = () => (
     <svg viewBox="0 0 496 512">
         <path

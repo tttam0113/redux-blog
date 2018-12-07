@@ -22,8 +22,9 @@ export default WrappedComponent => {
         }
     }
 
-    const mapStateToProps = state => ({
-        authenticated: !!state.auth.user && !!state.auth.user.uid
+    const mapStateToProps = (state, ownProps) => ({
+        authenticated: !!state.auth.user && !!state.auth.user.uid,
+        ...ownProps
     });
 
     return connect(mapStateToProps)(ComposedComponent);

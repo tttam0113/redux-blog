@@ -11,6 +11,7 @@ export const setLoader = ({ state, feature }) => ({
 export const SET_POSTS_LOADING = 'SET_POSTS_LOADING';
 export const SET_POST_DETAIL_LOADING = 'SET_POST_DETAIL_LOADING';
 export const SET_POST_DETAIL_DELETING = 'SET_POST_DETAIL_DELETING';
+export const SET_POST_DETAIL_UPDATING = 'SET_POST_DETAIL_UPDATING';
 export const SET_POST_FORM_SUBMITTING = 'SET_POST_SUBMITING';
 
 export const setPostsLoading = ({ state }) => ({
@@ -28,6 +29,12 @@ export const setPostDetailLoading = ({ state }) => ({
 export const setPostDetailDeleting = ({ state }) => ({
     type: SET_POST_DETAIL_DELETING,
     payload: { deleting: state },
+    meta: {}
+});
+
+export const setPostDetailUpdating = ({ state }) => ({
+    type: SET_POST_DETAIL_UPDATING,
+    payload: { updating: state },
     meta: {}
 });
 

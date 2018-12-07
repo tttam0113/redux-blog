@@ -13,7 +13,11 @@ import {
     FIREBASE_API_SUCCESS,
     FIREBASE_API_FAILURE
 } from 'redux/actions/firebaseApi';
-import { setPostDetailLoading, setPostFormSubmitting } from 'redux/actions/ui';
+import {
+    setPostDetailLoading,
+    setPostDetailUpdating,
+    setPostFormSubmitting
+} from 'redux/actions/ui';
 import * as Methods from 'firebase/methods';
 
 export default ({ dispatch, getState }) => next => action => {
@@ -23,7 +27,7 @@ export default ({ dispatch, getState }) => next => action => {
         case CLEAR_POST:
             next(setPost({ post: {} }));
             break;
-        case FETCH_POST:
+        case FETCH_POST: {
             dispatch(clearPost());
 
             const postId = action.payload.postId;
@@ -48,7 +52,8 @@ export default ({ dispatch, getState }) => next => action => {
                 ]);
             }
             break;
-        case ADD_POST:
+        }
+        case ADD_POST: {
             next([
                 firebaseApiRequest({
                     ref: 'posts',
@@ -59,11 +64,25 @@ export default ({ dispatch, getState }) => next => action => {
                 setPostFormSubmitting({ state: true, feature: FEATURE })
             ]);
             break;
-        case `${FEATURE} ${FIREBASE_API_SUCCESS}`:
+        }
+        case UPDATE_POST: {
+            const { id: postId, update: updateData } = action.payload;
+            next([
+                firebaseApiRequest({
+                    ref: `posts/${postId}`,
+                    method: Methods.UPDATE,
+                    data: updateData,
+                    feature: FEATURE
+                }),
+                setPostDetailUpdating({ state: true, feature: FEATURE })
+            ]);
+            break;
+        }
+        case `${FEATURE} ${FIREBASE_API_SUCCESS}`: {
             const metaData = action.meta.data;
             const { method } = metaData;
             const snapshot = action.payload;
-            
+
             if (method === Methods.PUSH) {
                 next(setPostFormSubmitting({ state: false, feature: FEATURE }));
             } else if (method === Methods.ONCE_VALUE) {
@@ -72,8 +91,11 @@ export default ({ dispatch, getState }) => next => action => {
                     setPost({ post: { id: snapshot.key, ...val } }),
                     setPostDetailLoading({ state: false, feature: FEATURE })
                 ]);
+            } else if (method === Methods.UPDATE) {
+                next(setPostDetailUpdating({ state: false, feature: FEATURE }));
             }
             break;
+        }
         case `${FEATURE} ${FIREBASE_API_FAILURE}`:
             next([setPostDetailLoading({ state: false, feature: FEATURE })]);
             break;

@@ -21,9 +21,9 @@ export const clearPost = () => ({
     meta: { feature: FEATURE }
 });
 
-export const updatePost = ({ id, updates }) => ({
+export const updatePost = ({ id, update }) => ({
     type: UPDATE_POST,
-    payload: { id, updates },
+    payload: { id, update },
     meta: { feature: FEATURE }
 });
 

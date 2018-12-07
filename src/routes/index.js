@@ -3,7 +3,7 @@ import PostsListView from 'views/PostsListView';
 import PostDetailView from 'views/PostDetailView';
 
 import PostsNewView from 'views/PostsNewView';
-import PostsEditPageContainer from 'containers/PostsEditPageContainer';
+import PostsEditView from 'views/PostsEditView';
 
 import requireAuth from '../hoc/requireAuth';
 
@@ -20,7 +20,7 @@ const indexRoutes = [
     },
     {
         path: '/posts/edit/:postId',
-        component: requireAuth(PostsEditPageContainer)
+        component: requireAuth(PostsEditView)
     },
     {
         path: '/posts/:postId',

@@ -30,6 +30,9 @@
     &--surface {
         background-color: $color-surface;
         color: $color-on-surface;
+        &:hover {
+            background-color: $color-background;
+        }
     }
 
     &.btn--secondary:hover {

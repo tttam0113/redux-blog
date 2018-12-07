@@ -1,10 +1,15 @@
 import { connect } from 'react-redux';
-import { fetchPost } from '../redux/actions/postDetail';
+
 import PostDetail from '../components/PostDetail';
 
-const mapStateToProps = (state, props) => ({
-    loading: state.ui.postDetail.loading,
-    post: state.postDetail
+import { fetchPost } from '../redux/actions/postDetail';
+
+import { getPostDetailLoading } from '../redux/selectors/ui';
+import { getPostDetail } from '../redux/selectors/posts';
+
+const mapStateToProps = state => ({
+    loading: getPostDetailLoading(state),
+    post: getPostDetail(state)
 });
 
 const mapDispatchToProps = { fetchPost };

@@ -21,3 +21,8 @@ export const getPostDetailLoading = createSelector(
     getPostDetailUi,
     postDetailUi => postDetailUi.loading
 );
+
+export const getPostDetailUpdating = createSelector(
+    getPostDetailUi,
+    postDetailUi => postDetailUi.updating
+)
