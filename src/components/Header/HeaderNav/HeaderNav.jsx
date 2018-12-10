@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { history } from 'layouts/App';
+import Avatar from '../User/Avatar';
+import UserMenu from '../User/UserMenu';
+
 const items = [
     {
         label: 'Courses',
@@ -27,34 +31,58 @@ const HeaderNavItem = ({ linkTo, label }) => (
     </div>
 );
 
-const HeaderNav = ({ login, logout, user }) => (
-    <div className="blog-header__nav">
-        {/* {items.map((item, key) => (
-            <HeaderNavItem key={key} {...item} />
-        ))} */}
+class HeaderNav extends React.Component {
+    state = {
+        userMenuVisible: false
+    };
 
-        {!user ? (
-            <div className="blog-header__nav-item">
-                <button className="btn btn--secondary " onClick={login}>
-                    Login
-                </button>
+    setUserMenuVisible = value => {
+        this.setState(() => ({ userMenuVisible: value }));
+    };
+
+    createNewPost = () => {
+        history.push('/posts/new');
+        this.setUserMenuVisible(false);
+    };
+
+    doLogout = () => {
+        this.props.logout();
+        this.setUserMenuVisible(false);
+    }
+
+    render() {
+        const { login, user } = this.props;
+        return (
+            <div className="blog-header__nav">
+                {!user ? (
+                    <div className="blog-header__nav-item">
+                        <button className="btn btn--secondary " onClick={login}>
+                            Login
+                        </button>
+                    </div>
+                ) : (
+                    <div className="blog-header__nav-user">
+                        <Avatar
+                            avatar={user.photoURL}
+                            displayName={user.displayName}
+                            onClick={() => {
+                                this.setUserMenuVisible(
+                                    !this.state.userMenuVisible
+                                );
+                            }}
+                        />
+                        {this.state.userMenuVisible ? (
+                            <UserMenu
+                                displayName={user.displayName}
+                                createNewPost={this.createNewPost}
+                                logout={this.doLogout}
+                            />
+                        ) : null}
+                    </div>
+                )}
             </div>
-        ) : (
-            <React.Fragment>
-                <div className="blog-header__nav-item">
-                    <Link to="/posts/new" className="btn btn--secondary ">
-                        Create new post
-                    </Link>
-                </div>
-
-                <div className="blog-header__nav-item">
-                    <button className="btn btn--secondary " onClick={logout}>
-                        Logout
-                    </button>
-                </div>
-            </React.Fragment>
-        )}
-    </div>
-);
+        );
+    }
+}
 
 export default HeaderNav;

@@ -38,11 +38,60 @@
 
     &__nav {
         display: flex;
+
         &-item {
             display: inline-block;
             margin-left: 1.6rem;
         }
 
+        &-user {
+            position: relative;
+        }
+    }
 
+    &__avatar {
+        align-items: center;
+        background-color: transparent;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        height: 4.8rem;
+        width: 4.8rem;
+
+        &-icon {
+            height: 3.2rem;
+            width: 3.2rem;
+            border-radius: 100%;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    &__user-menu {
+        background-color: $color-surface;
+        border-radius: 0.4rem;
+        box-shadow: $shadow-4;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        position: absolute;
+        right: 0;
+        
+        &-item {
+            color: $color-on-surface;
+            padding: 1.1rem 1.6rem;
+            text-align: left;
+            line-height: 1.5;
+            text-decoration: none;
+            width: auto;
+            white-space: nowrap;
+            cursor: pointer;
+            
+            &:first-child {
+                border-bottom: .1rem solid $color-on-surface;
+                pointer-events: none;
+            }
+        }
     }
 }

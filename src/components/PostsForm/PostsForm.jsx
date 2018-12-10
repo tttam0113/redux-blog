@@ -44,7 +44,7 @@ class PostsForm extends React.Component {
     }
 
     onChange = e => {
-        const { name, value } = e.target.value;
+        const { name, value } = e.target;
         this.setState(() => ({ [name]: value }));
     };
 

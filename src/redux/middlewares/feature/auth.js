@@ -8,6 +8,7 @@ export default ({ dispatch }) => next => action => {
     switch (action.type) {
         case FETCH_USER:
             firebase.auth().onAuthStateChanged(user => {
+                console.log(user);
                 next(setUser({ user }));
             });
             break;

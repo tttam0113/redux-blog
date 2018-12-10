@@ -8,4 +8,18 @@
         box-shadow: $shadow-1;
         padding: 1.6rem;
     }
+
+    &__actions {
+        background-color: $color-primary;
+        box-shadow: $shadow-2;
+        display: flex;
+        justify-content: flex-end;
+        min-height: 5.2rem;
+        padding: 0.8rem;
+
+        .btn:not(:first-child) {
+            margin-left: 0.8rem;
+
+        }
+    }
 }
