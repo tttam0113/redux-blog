@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Avatar = ({ avatar, displayName, onClick }) => (
     <div className="blog-header__avatar" onClick={onClick}>
@@ -9,5 +10,11 @@ const Avatar = ({ avatar, displayName, onClick }) => (
         />
     </div>
 );
+
+Avatar.propTypes = {
+    avatar: PropTypes.string,
+    displayName: PropTypes.string,
+    onClick: PropTypes.func
+};
 
 export default Avatar;

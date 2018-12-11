@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PostsForm from '../PostsForm';
 import Spinner from '../Spinner';
@@ -31,5 +32,19 @@ class PostsEditPage extends React.Component {
         );
     }
 }
+
+PostsEditPage.propTypes = {
+    fetchPost: PropTypes.func,
+    loading: PropTypes.bool,
+    match: PropTypes.object,
+    post: PropTypes.object,
+    updatePost: PropTypes.func,
+    
+};
+
+PostsEditPage.defaultProps = {
+    loading: false,
+    post: undefined
+};
 
 export default PostsEditPage;

@@ -9,7 +9,6 @@ import {
 import {
     firebaseApiRequest,
     FIREBASE_API_SUCCESS,
-    FIREBASE_API_FAILURE
 } from '../../actions/firebaseApi';
 import { setPostsLoading } from '../../actions/ui';
 
@@ -41,7 +40,7 @@ export default ({ dispatch }) => next => action => {
         //         setPostsLoading({ state: false })
         //     ]);
         //     break;
-        case `${FEATURE} ${FIREBASE_API_SUCCESS}`:
+        case `${FEATURE} ${FIREBASE_API_SUCCESS}`: {
             const snapshot = action.payload;
             const posts = [];
             snapshot.forEach(childSnapshot => {
@@ -52,6 +51,7 @@ export default ({ dispatch }) => next => action => {
             });
             next([setPosts({ posts }), setPostsLoading({ state: false })]);
             break;
+        }
         default:
             break;
     }

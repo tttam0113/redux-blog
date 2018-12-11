@@ -1,16 +1,15 @@
 import firebaseApiMiddleware from '../firebaseApi';
-import * as Methods from 'firebase/methods';
+// import * as Methods from 'firebase/methods';
 
-import content from '../data/how-to-test-react-components-with-jest-and-enzyme-in-depth';
 import mockMiddleware from 'tests/__mocks__/mockMiddleware';
-import wait from 'tests/__mocks__/wait';
+// import wait from 'tests/__mocks__/wait';
 
 const create = mockMiddleware(firebaseApiMiddleware);
 
-let dispatch, next, invoke;
+let next, invoke;
 beforeEach(() => {
     const res = create();
-    dispatch = res.store.dispatch;
+    // dispatch = res.store.dispatch;
     next = res.next;
     invoke = res.invoke;
 });
@@ -20,7 +19,7 @@ it('should pass through any action', () => {
 
     invoke(action);
 
-    expect(next).toBeCalledWith(action);
+    expect(next).toHaveBeenCalledWith(action);
 });
 
 // it('should push data to firebase database', (done) => {

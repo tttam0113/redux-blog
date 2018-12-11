@@ -1,35 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+// import { Link } from 'react-router-dom';
 import { history } from 'layouts/App';
 import Avatar from '../User/Avatar';
 import UserMenu from '../User/UserMenu';
 
-const items = [
-    {
-        label: 'Courses',
-        linkTo: '/'
-    },
-    {
-        label: 'Features',
-        linkTo: '/'
-    },
-    {
-        label: 'Review',
-        linkTo: '/'
-    },
-    {
-        label: 'Blog',
-        linkTo: '/'
-    }
-];
+// const items = [
+//     {
+//         label: 'Courses',
+//         linkTo: '/'
+//     },
+//     {
+//         label: 'Features',
+//         linkTo: '/'
+//     },
+//     {
+//         label: 'Review',
+//         linkTo: '/'
+//     },
+//     {
+//         label: 'Blog',
+//         linkTo: '/'
+//     }
+// ];
 
-const HeaderNavItem = ({ linkTo, label }) => (
-    <div className="blog-header__nav-item">
-        <Link to={linkTo} className="btn btn--text">
-            {label}
-        </Link>
-    </div>
-);
+// const HeaderNavItem = ({ linkTo, label }) => (
+//     <div className="blog-header__nav-item">
+//         <Link to={linkTo} className="btn btn--text">
+//             {label}
+//         </Link>
+//     </div>
+// );
 
 class HeaderNav extends React.Component {
     state = {
@@ -48,7 +49,7 @@ class HeaderNav extends React.Component {
     doLogout = () => {
         this.props.logout();
         this.setUserMenuVisible(false);
-    }
+    };
 
     render() {
         const { login, user } = this.props;
@@ -84,5 +85,11 @@ class HeaderNav extends React.Component {
         );
     }
 }
+
+HeaderNav.propTypes = {
+    login: PropTypes.func,
+    logout: PropTypes.func,
+    user: PropTypes.object
+};
 
 export default HeaderNav;

@@ -36,7 +36,7 @@ describe('apiRequest', () => {
 
 describe('apiSuccess', () => {
     it('should generate apiSuccess action object', () => {
-        const response = { id: '123' }
+        const response = { id: '123' };
         const action = apiSuccess({
             response,
             data: {
@@ -62,7 +62,7 @@ describe('apiSuccess', () => {
 
 describe('apiError', () => {
     it('should generate apiError action object', () => {
-        const error = "Error Message"
+        const error = 'Error Message';
         const action = apiError({
             error,
             data: {
@@ -74,7 +74,7 @@ describe('apiError', () => {
 
         expect(action).toEqual({
             type: `[Feature] ${API_ERROR}`,
-            payload: "Error Message",
+            payload: 'Error Message',
             meta: {
                 data: {
                     key1: 'value1',

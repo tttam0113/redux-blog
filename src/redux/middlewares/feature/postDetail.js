@@ -3,7 +3,6 @@ import {
     CLEAR_POST,
     FETCH_POST,
     ADD_POST,
-    REMOVE_POST,
     UPDATE_POST,
     setPost,
     clearPost
@@ -33,7 +32,7 @@ export default ({ dispatch, getState }) => next => action => {
             const postId = action.payload.postId;
             // try to find in current list
             const posts = getState().posts.items;
-            let post = undefined;
+            let post;
             if (posts && posts.length) {
                 post = posts.find(p => p.id === postId);
             }

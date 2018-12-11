@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'markdown-to-jsx';
 
@@ -46,5 +47,12 @@ class PostDetail extends React.Component {
         );
     }
 }
+
+PostDetail.propTypes = {
+    fetchPost: PropTypes.func.isRequired,
+    loading: PropTypes.bool,
+    post: PropTypes.object,
+    match: PropTypes.object
+};
 
 export default PostDetail;

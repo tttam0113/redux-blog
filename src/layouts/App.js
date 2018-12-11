@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Router, Redirect, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
@@ -13,7 +14,7 @@ import indexRoutes from 'routes';
 export const history = createHistory();
 
 class App extends React.Component {
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.props.fetchUser();
     }
 
@@ -48,6 +49,10 @@ class App extends React.Component {
         );
     }
 }
+
+App.propTypes = {
+    fetchUser: PropTypes.func.isRequired
+};
 
 export default connect(
     null,

@@ -1,4 +1,4 @@
-import { SET_POST } from "../actions/postDetail";
+import { SET_POST } from '../actions/postDetail';
 
 const initialState = {
     author: '',
@@ -6,7 +6,7 @@ const initialState = {
     title: '',
     content: '',
     link: ''
-}
+};
 
 export default (postDetail = initialState, action) => {
     switch (action.type) {
@@ -14,7 +14,7 @@ export default (postDetail = initialState, action) => {
             return {
                 ...postDetail,
                 ...action.payload
-            }
+            };
         default:
             return postDetail;
     }

@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';
 // const items = [];
-
-export default ({ displayName, createNewPost, logout }) => {
+const UserMenu = ({ displayName, createNewPost, logout }) => {
     return (
         <ul className="blog-header__user-menu">
             <li className="blog-header__user-menu-item">{displayName}</li>
@@ -15,3 +15,11 @@ export default ({ displayName, createNewPost, logout }) => {
         </ul>
     );
 };
+
+UserMenu.propTypes = {
+    displayName: PropTypes.string,
+    createNewPost: PropTypes.func,
+    logout: PropTypes.func
+};
+
+export default UserMenu;

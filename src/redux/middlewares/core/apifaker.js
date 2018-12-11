@@ -8,7 +8,7 @@ export default ({ dispatch }) => next => action => {
 
     if (action.type.includes(API_REQUEST)) {
         const data = action.payload || {};
-        const { url, method, feature } = action.meta;
+        const { url, feature } = action.meta;
 
         if (url === '/posts') {
             const { offset = 0, limit = 10 } = data;

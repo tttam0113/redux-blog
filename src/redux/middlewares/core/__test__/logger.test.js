@@ -21,7 +21,7 @@ describe('loggerMiddleware', () => {
 
         invoke(action);
 
-        expect(next).toBeCalledWith(action);
+        expect(next).toHaveBeenCalledWith(action);
     });
 
     it('should get previous and next state', () => {
@@ -29,7 +29,7 @@ describe('loggerMiddleware', () => {
 
         invoke(action);
 
-        expect(getState).toBeCalledTimes(2);
+        expect(getState).toHaveBeenCalledTimes(2);
     });
 
     it('should not get previous and next state in production mode', () => {
@@ -39,7 +39,7 @@ describe('loggerMiddleware', () => {
 
         invoke(action);
 
-        expect(next).toBeCalled();
-        expect(getState).toBeCalledTimes(0);
+        expect(next).toHaveBeenCalled();
+        expect(getState).toHaveBeenCalledTimes(0);
     });
 });

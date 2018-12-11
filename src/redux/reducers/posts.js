@@ -1,4 +1,4 @@
-import { SET_POSTS, SET_MORE_POSTS } from '../actions/posts';
+import { SET_POSTS } from '../actions/posts';
 
 const initialState = {
     currentPage: 0,
@@ -12,7 +12,7 @@ export default (posts = initialState, action) => {
             return {
                 ...posts,
                 items: action.payload
-            }
+            };
         default:
             return posts;
     }

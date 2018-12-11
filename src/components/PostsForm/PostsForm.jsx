@@ -9,7 +9,9 @@ class PostsForm extends React.Component {
             title: props.post ? props.post.title : '',
             author: props.post ? props.post.author : '',
             description: props.post ? props.post.description : '',
-            content: props.post ? props.post.content.replace(/<br\/>/gi, '\n') : '',
+            content: props.post
+                ? props.post.content.replace(/<br\/>/gi, '\n')
+                : '',
             link: props.post ? props.post.link : ''
         };
 
@@ -17,7 +19,7 @@ class PostsForm extends React.Component {
             {
                 name: 'title',
                 label: 'Title',
-                placeholder: "Post's title"
+                placeholder: 'Post\'s title'
             },
             {
                 name: 'author',
@@ -27,7 +29,7 @@ class PostsForm extends React.Component {
             {
                 label: 'Description',
                 name: 'description',
-                placeholder: "Post's description or preview"
+                placeholder: 'Post\'s description or preview'
             },
             {
                 label: 'Link',

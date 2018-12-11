@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import PostForm from '../PostsForm';
 
 export class PostNewPage extends React.Component {
@@ -17,5 +17,14 @@ export class PostNewPage extends React.Component {
         );
     }
 }
+
+PostNewPage.propTypes = {
+    addPost: PropTypes.func.isRequired,
+    submitting: PropTypes.bool
+};
+
+PostNewPage.defaultProps = {
+    submitting: false
+};
 
 export default PostNewPage;

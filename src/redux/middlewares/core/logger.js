@@ -91,7 +91,7 @@ const logDiff = (prevState, newState) => {
 
         endGroup('—— diff end —— ');
     } catch (e) {
-        log(`-- log diff error --`);
+        log('-- log diff error --');
     }
 };
 

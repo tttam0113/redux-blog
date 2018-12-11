@@ -17,18 +17,22 @@ describe('actionSplitterMiddleware', () => {
 
         invoke(action);
 
-        expect(next).toBeCalledWith(action);
+        expect(next).toHaveBeenCalledWith(action);
     });
 
     it('should pass through list actions', () => {
-        const actions = [ { type: 'TEST 1' }, { type: 'TEST 2' }, { type: 'TEST 3' } ];
+        const actions = [
+            { type: 'TEST 1' },
+            { type: 'TEST 2' },
+            { type: 'TEST 3' }
+        ];
 
         invoke(actions);
 
-        expect(next).toBeCalledTimes(actions.length);
+        expect(next).toHaveBeenCalledTimes(actions.length);
 
         actions.forEach(action => {
-            expect(next).toBeCalledWith(action);
-        })
-    })
+            expect(next).toHaveBeenCalledWith(action);
+        });
+    });
 });

@@ -2,7 +2,7 @@ import { FETCH_USER, LOGIN, LOGOUT, setUser } from 'redux/actions/auth';
 
 import { firebase, googleAuthProvider } from '../../../firebase/firebase';
 
-export default ({ dispatch }) => next => action => {
+export default () => next => action => {
     next(action);
 
     switch (action.type) {

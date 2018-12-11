@@ -6,7 +6,7 @@ import PostsNewPage from '../components/PostsNewPage';
 
 const mapStateToProps = state => ({
     submitting: state.ui.postForm.submitting
-})
+});
 
 const mapDispatchToProps = {
     addPost

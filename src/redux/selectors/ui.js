@@ -25,4 +25,4 @@ export const getPostDetailLoading = createSelector(
 export const getPostDetailUpdating = createSelector(
     getPostDetailUi,
     postDetailUi => postDetailUi.updating
-)
+);
