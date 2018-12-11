@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Avatar = ({ avatar, displayName, onClick }) => (
-    <div className="blog-header__avatar" onClick={onClick}>
+    <div className="blog-header__avatar" onClick={onClick} role="Avatar">
         <img
             className="blog-header__avatar-icon"
             src={avatar}

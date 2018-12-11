@@ -1,14 +1,11 @@
 import { connect } from 'react-redux';
-
-import PostsEditPage from '../components/PostsEditPage';
-
-import { updatePost, fetchPost } from '../redux/actions/postDetail';
-
+import PostsEditPage from 'components/PostsEditPage';
+import { updatePost, fetchPost } from 'redux/actions/postDetail';
 import {
     getPostDetailLoading,
     getPostDetailUpdating,
-} from '../redux/selectors/ui';
-import { getPostDetail } from '../redux/selectors/posts';
+} from 'redux/selectors/ui';
+import { getPostDetail } from 'redux/selectors/posts';
 
 const mapStateToProps = state => ({
     // post: state.posts.items.find(p => p.id === props.match.params.postId)

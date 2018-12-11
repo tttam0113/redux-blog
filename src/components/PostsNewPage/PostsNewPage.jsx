@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import PostForm from '../PostsForm';
 
 export class PostNewPage extends React.Component {
-    onSubmit = (post) => {
+    handleOnSubmit = (post) => {
         this.props.addPost({ post });
         // this.props.history.push('/');
     };
@@ -11,7 +11,7 @@ export class PostNewPage extends React.Component {
     render() {
         return (
             <div className="blog-post-form">
-                <PostForm onSubmit={this.onSubmit} />
+                <PostForm onSubmit={this.handleOnSubmit} />
                 {this.props.submitting ? <span>Submitting...</span> : null}
             </div>
         );

@@ -1,6 +1,5 @@
 import database from '../../../firebase/firebase';
 import * as Methods from '../../../firebase/methods';
-
 import {
     FIREBASE_API_REQUEST,
     firebaseApiSuccess,

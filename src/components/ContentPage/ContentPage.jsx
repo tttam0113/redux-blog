@@ -4,15 +4,16 @@ import ContentPageHeader from './ContentPageHeader';
 // import ContentPageContent from './ContentPageContent';
 
 const ContentPage = ({ title, subtitle, children }) => (
-    <div className="blog-content-page">
-        <ContentPageHeader title={title} subtitle={subtitle} />
-        <div className="blog-content-page__content">{children}</div>
-    </div>
+  <div className="blog-content-page">
+    <ContentPageHeader title={title} subtitle={subtitle} />
+    <div className="blog-content-page__content">{children}</div>
+  </div>
 );
 
 ContentPage.propTypes = {
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default ContentPage;

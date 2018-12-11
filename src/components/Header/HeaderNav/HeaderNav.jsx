@@ -33,63 +33,61 @@ import UserMenu from '../User/UserMenu';
 // );
 
 class HeaderNav extends React.Component {
-    state = {
-        userMenuVisible: false,
-    };
+  state = {
+    userMenuVisible: false,
+  };
 
-    setUserMenuVisible = (value) => {
-        this.setState(() => ({ userMenuVisible: value }));
-    };
+  setUserMenuVisible = value => {
+    this.setState(() => ({ userMenuVisible: value }));
+  };
 
-    createNewPost = () => {
-        history.push('/posts/new');
-        this.setUserMenuVisible(false);
-    };
+  createNewPost = () => {
+    history.push('/posts/new');
+    this.setUserMenuVisible(false);
+  };
 
-    doLogout = () => {
-        this.props.logout();
-        this.setUserMenuVisible(false);
-    };
+  doLogout = () => {
+    this.props.logout();
+    this.setUserMenuVisible(false);
+  };
 
-    render() {
-        const { login, user } = this.props;
-        return (
-            <div className="blog-header__nav">
-                {!user ? (
-                    <div className="blog-header__nav-item">
-                        <button className="btn btn--secondary " onClick={login}>
-                            Login
-                        </button>
-                    </div>
-                ) : (
-                    <div className="blog-header__nav-user">
-                        <Avatar
-                            avatar={user.photoURL}
-                            displayName={user.displayName}
-                            onClick={() => {
-                                this.setUserMenuVisible(
-                                    !this.state.userMenuVisible,
-                                );
-                            }}
-                        />
-                        {this.state.userMenuVisible ? (
-                            <UserMenu
-                                displayName={user.displayName}
-                                createNewPost={this.createNewPost}
-                                logout={this.doLogout}
-                            />
-                        ) : null}
-                    </div>
-                )}
-            </div>
-        );
-    }
+  render() {
+    const { login, user } = this.props;
+    return (
+      <div className="blog-header__nav">
+        {!user ? (
+          <div className="blog-header__nav-item">
+            <button type="button" className="btn btn--secondary " onClick={login}>
+              Login
+            </button>
+          </div>
+        ) : (
+          <div className="blog-header__nav-user">
+            <Avatar
+              avatar={user.photoURL}
+              displayName={user.displayName}
+              onClick={() => {
+                this.setUserMenuVisible(!this.state.userMenuVisible);
+              }}
+            />
+            {this.state.userMenuVisible ? (
+              <UserMenu
+                displayName={user.displayName}
+                createNewPost={this.createNewPost}
+                logout={this.doLogout}
+              />
+            ) : null}
+          </div>
+        )}
+      </div>
+    );
+  }
 }
 
 HeaderNav.propTypes = {
-    login: PropTypes.func,
-    logout: PropTypes.func,
-    user: PropTypes.object,
+  login: PropTypes.func,
+  logout: PropTypes.func,
+  user: PropTypes.object,
 };
 
 export default HeaderNav;

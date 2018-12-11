@@ -1,9 +1,6 @@
 import { connect } from 'react-redux';
-
 import PostDetail from '../components/PostDetail';
-
 import { fetchPost } from '../redux/actions/postDetail';
-
 import { getPostDetailLoading } from '../redux/selectors/ui';
 import { getPostDetail } from '../redux/selectors/posts';
 

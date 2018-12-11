@@ -4,7 +4,7 @@ it('should set default state', () => {
     const state = uiReducer(undefined, { type: '@@INIT' });
     expect(state).toEqual({
         posts: { loading: false },
-        postDetail: { loading: false, deleting: false },
+        postDetail: { loading: false, deleting: false, updating: false },
         postForm: { submitting: false },
     });
 });

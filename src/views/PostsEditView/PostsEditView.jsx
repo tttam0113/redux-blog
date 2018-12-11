@@ -1,5 +1,4 @@
 import React from 'react';
-
 import ContentPage from 'components/ContentPage';
 import PostsEditPageContainer from 'containers/PostsEditPageContainer';
 

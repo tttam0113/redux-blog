@@ -44,6 +44,7 @@ const PostItem = ({ item, authenticated }) => (
 );
 
 PostItem.propTypes = {
+    authenticated: PropTypes.bool,
     item: PropTypes.objectOf({
         id: PropTypes.string,
         title: PropTypes.string,
@@ -51,7 +52,6 @@ PostItem.propTypes = {
         description: PropTypes.string,
         content: PropTypes.string,
     }),
-    authenticated: PropTypes.bool,
 };
 
 export default PostItem;

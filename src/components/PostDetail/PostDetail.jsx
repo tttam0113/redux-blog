@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'markdown-to-jsx';
-
 import ContentPage from '../ContentPage';
 import Spinner from '../Spinner';
 
@@ -37,7 +36,7 @@ class PostDetail extends React.Component {
                                     Edit
                                 </Link>
                             </div>
-                            <ReactMarkdown 
+                            <ReactMarkdown
                                 className="blog-post-detail__content markdown-element">
                                 {post.content.replace(/<br\/>/gi, '\n')}
                             </ReactMarkdown>
@@ -52,8 +51,8 @@ class PostDetail extends React.Component {
 PostDetail.propTypes = {
     fetchPost: PropTypes.func.isRequired,
     loading: PropTypes.bool,
-    post: PropTypes.object,
     match: PropTypes.object,
+    post: PropTypes.object,
 };
 
 export default PostDetail;

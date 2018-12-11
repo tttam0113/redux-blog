@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Spinner from '../Spinner';
 import PostPreview from './PostPreview';
 
 class PostsList extends React.Component {
-    UNSAFE_componentWillMount() {
+    componentWillMount() {
         this.props.fetchPosts();
     }
 
@@ -34,10 +33,10 @@ class PostsList extends React.Component {
 }
 
 PostsList.propTypes = {
-    fetchPosts: PropTypes.func.isRequired,
     authenticated: PropTypes.bool,
-    loading: PropTypes.bool,
+    fetchPosts: PropTypes.func.isRequired,
     items: PropTypes.arrayOf(PropTypes.object),
+    loading: PropTypes.bool,
 };
 
 PostsList.defaultProps = {
