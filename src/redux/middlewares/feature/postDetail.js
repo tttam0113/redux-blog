@@ -5,21 +5,21 @@ import {
     ADD_POST,
     UPDATE_POST,
     setPost,
-    clearPost
+    clearPost,
 } from 'redux/actions/postDetail';
 import {
     firebaseApiRequest,
     FIREBASE_API_SUCCESS,
-    FIREBASE_API_FAILURE
+    FIREBASE_API_FAILURE,
 } from 'redux/actions/firebaseApi';
 import {
     setPostDetailLoading,
     setPostDetailUpdating,
-    setPostFormSubmitting
+    setPostFormSubmitting,
 } from 'redux/actions/ui';
 import * as Methods from 'firebase/methods';
 
-export default ({ dispatch, getState }) => next => action => {
+export default ({ dispatch, getState }) => next => (action) => {
     next(action);
 
     switch (action.type) {
@@ -29,7 +29,7 @@ export default ({ dispatch, getState }) => next => action => {
         case FETCH_POST: {
             dispatch(clearPost());
 
-            const postId = action.payload.postId;
+            const { postId } = action.payload;
             // try to find in current list
             const posts = getState().posts.items;
             let post;
@@ -38,16 +38,15 @@ export default ({ dispatch, getState }) => next => action => {
             }
             if (post) {
                 next([setPost({ post })]);
-                return;
             } else {
                 next([
                     firebaseApiRequest({
                         ref: `posts/${postId}`,
                         method: Methods.ONCE_VALUE,
                         data: {},
-                        feature: FEATURE
+                        feature: FEATURE,
                     }),
-                    setPostDetailLoading({ state: true, feature: FEATURE })
+                    setPostDetailLoading({ state: true, feature: FEATURE }),
                 ]);
             }
             break;
@@ -58,9 +57,9 @@ export default ({ dispatch, getState }) => next => action => {
                     ref: 'posts',
                     method: Methods.PUSH,
                     data: action.payload,
-                    feature: FEATURE
+                    feature: FEATURE,
                 }),
-                setPostFormSubmitting({ state: true, feature: FEATURE })
+                setPostFormSubmitting({ state: true, feature: FEATURE }),
             ]);
             break;
         }
@@ -71,9 +70,9 @@ export default ({ dispatch, getState }) => next => action => {
                     ref: `posts/${postId}`,
                     method: Methods.UPDATE,
                     data: updateData,
-                    feature: FEATURE
+                    feature: FEATURE,
                 }),
-                setPostDetailUpdating({ state: true, feature: FEATURE })
+                setPostDetailUpdating({ state: true, feature: FEATURE }),
             ]);
             break;
         }
@@ -88,7 +87,7 @@ export default ({ dispatch, getState }) => next => action => {
                 const val = snapshot.val();
                 next([
                     setPost({ post: { id: snapshot.key, ...val } }),
-                    setPostDetailLoading({ state: false, feature: FEATURE })
+                    setPostDetailLoading({ state: false, feature: FEATURE }),
                 ]);
             } else if (method === Methods.UPDATE) {
                 next(setPostDetailUpdating({ state: false, feature: FEATURE }));

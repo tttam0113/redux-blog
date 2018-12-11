@@ -1,4 +1,6 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import {
+    createStore, combineReducers, applyMiddleware, compose,
+} from 'redux';
 
 import uiReducer from './reducers/ui';
 import postsReducer from './reducers/posts';
@@ -20,22 +22,26 @@ const rootReducer = combineReducers({
     ui: uiReducer,
     auth: authReducer,
     posts: postsReducer,
-    postDetail: postDetailReducer
+    postDetail: postDetailReducer,
     // filters: filtersReducer,
 });
 
-const featureMiddlewares = [postsMiddleware, postDetailMiddleware, authMiddleware];
+const featureMiddlewares = [
+    postsMiddleware,
+    postDetailMiddleware,
+    authMiddleware,
+];
 const coreMiddlewares = [
     actionSplitterMiddleware,
     // apiMiddleware,
     firebaseApiMiddleware,
-    loggerMiddleware
+    loggerMiddleware,
 ];
 
 const composeEnhancers = compose;
 
 const enhancer = composeEnhancers(
-    applyMiddleware(...featureMiddlewares, ...coreMiddlewares)
+    applyMiddleware(...featureMiddlewares, ...coreMiddlewares),
 );
 
 export default createStore(rootReducer, {}, enhancer);

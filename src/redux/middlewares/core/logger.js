@@ -1,6 +1,8 @@
 import differ from 'deep-diff';
 
-const { log, group, groupCollapsed, groupEnd } = console;
+const {
+    log, group, groupCollapsed, groupEnd,
+} = console;
 const isCollapsed = true;
 
 const tryCatch = (func, defaultMsg) => {
@@ -11,13 +13,13 @@ const tryCatch = (func, defaultMsg) => {
     }
 };
 
-const startGroup = label => {
+const startGroup = (label) => {
     tryCatch(() => {
         isCollapsed ? groupCollapsed(label) : group(label);
     }, label);
 };
 
-const endGroup = label => {
+const endGroup = (label) => {
     tryCatch(() => groupEnd(), label);
 };
 
@@ -25,38 +27,40 @@ const endGroup = label => {
 const dictionary = {
     E: {
         color: '#2196F3',
-        text: 'CHANGED:'
+        text: 'CHANGED:',
     },
     N: {
         color: '#4CAF50',
-        text: 'ADDED:'
+        text: 'ADDED:',
     },
     D: {
         color: '#F44336',
-        text: 'DELETED:'
+        text: 'DELETED:',
     },
     A: {
         color: '#2196F3',
-        text: 'ARRAY:'
+        text: 'ARRAY:',
     },
     CS: {
         color: '#9E9E9E',
-        text: 'CURRENT STATE'
+        text: 'CURRENT STATE',
     },
     NS: {
         color: '#4CAF50',
-        text: 'NEXT STATE'
+        text: 'NEXT STATE',
     },
     AC: {
         color: '#03A9F4',
-        text: 'ACTION:'
-    }
+        text: 'ACTION:',
+    },
 };
 
 const style = kind => `color: ${dictionary[kind].color}; font-weight: bold`;
 
-const renderDiff = diff => {
-    const { kind, path, lhs, rhs, index, item } = diff;
+const renderDiff = (diff) => {
+    const {
+        kind, path, lhs, rhs, index, item,
+    } = diff;
 
     switch (kind) {
         case 'E':
@@ -79,7 +83,7 @@ const logDiff = (prevState, newState) => {
         startGroup('Diff');
 
         if (diff) {
-            diff.forEach(elem => {
+            diff.forEach((elem) => {
                 const { kind } = elem;
                 const output = renderDiff(elem);
 
@@ -95,20 +99,20 @@ const logDiff = (prevState, newState) => {
     }
 };
 
-export default ({ getState }) => next => action => {
+export default ({ getState }) => next => (action) => {
     const { NODE_ENV } = process.env;
 
     if (NODE_ENV === 'development') {
         startGroup(`${action.type}`);
 
         const currentState = getState();
-        log(`%c ${dictionary['CS'].text}`, style('CS'), currentState);
+        log(`%c ${dictionary.CS.text}`, style('CS'), currentState);
 
-        log(`%c ${dictionary['AC'].text}`, style('AC'), action);
+        log(`%c ${dictionary.AC.text}`, style('AC'), action);
         next(action);
 
         const nextState = getState();
-        log(`%c ${dictionary['NS'].text}`, style('NS'), nextState);
+        log(`%c ${dictionary.NS.text}`, style('NS'), nextState);
 
         logDiff(currentState, nextState);
 

@@ -1,7 +1,7 @@
 const initialState = {
     title: '',
     content: '',
-    actions: []
+    actions: [],
 };
 
 export default (notification = initialState, action) => {

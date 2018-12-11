@@ -4,25 +4,25 @@ export const getUi = state => state.ui;
 
 export const getPostsUi = createSelector(
     getUi,
-    ui => ui.posts
+    ui => ui.posts,
 );
 
 export const getPostsUiLoading = createSelector(
     getPostsUi,
-    postUi => postUi.loading
+    postUi => postUi.loading,
 );
 
 export const getPostDetailUi = createSelector(
     getUi,
-    ui => ui.postDetail
+    ui => ui.postDetail,
 );
 
 export const getPostDetailLoading = createSelector(
     getPostDetailUi,
-    postDetailUi => postDetailUi.loading
+    postDetailUi => postDetailUi.loading,
 );
 
 export const getPostDetailUpdating = createSelector(
     getPostDetailUi,
-    postDetailUi => postDetailUi.updating
+    postDetailUi => postDetailUi.updating,
 );

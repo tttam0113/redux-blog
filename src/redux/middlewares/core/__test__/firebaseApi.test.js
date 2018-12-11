@@ -1,12 +1,13 @@
+import mockMiddleware from 'tests/__mocks__/mockMiddleware';
 import firebaseApiMiddleware from '../firebaseApi';
 // import * as Methods from 'firebase/methods';
 
-import mockMiddleware from 'tests/__mocks__/mockMiddleware';
 // import wait from 'tests/__mocks__/wait';
 
 const create = mockMiddleware(firebaseApiMiddleware);
 
-let next, invoke;
+let next; let
+    invoke;
 beforeEach(() => {
     const res = create();
     // dispatch = res.store.dispatch;
@@ -34,7 +35,7 @@ it('should pass through any action', () => {
 //                 createdAt: new Date(),
 //                 author: 'Alona Pysarenko'
 //             }
-//         }, 
+//         },
 //         meta: {
 //             method: Methods.PUSH,
 //             feature: '[Test]'

@@ -19,7 +19,9 @@
         "indent": [
             "warn",
             4,
-            { "SwitchCase": 1 }
+            {
+                "SwitchCase": 1
+            }
         ],
         "linebreak-style": [
             "error",
@@ -33,18 +35,27 @@
             "error",
             "always"
         ],
-        "react/prop-types": [ 1, { "ignore": ["children"] } ],
+        "react/prop-types": [1, {
+            "ignore": ["children"]
+        }],
+
         "eqeqeq": "error",
         "no-console": "off",
         "no-unused-vars": "warn",
         "no-undef": 2,
         "no-undef-init": 2,
         "jsx-a11y/href-no-hash": [0],
-        "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }]
+        "jsx-a11y/anchor-is-valid": ["warn", {
+            "aspects": ["invalidHref"]
+        }],
+        "react/jsx-indent": 0,
+        "react/jsx-indent-props": 0,
+        "import/no-unresolved": 0
     },
     "extends": [
         "eslint:recommended",
         "plugin:jest/recommended",
         "plugin:react/recommended"
+
     ]
 }

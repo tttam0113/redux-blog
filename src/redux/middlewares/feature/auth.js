@@ -1,13 +1,15 @@
-import { FETCH_USER, LOGIN, LOGOUT, setUser } from 'redux/actions/auth';
+import {
+    FETCH_USER, LOGIN, LOGOUT, setUser,
+} from 'redux/actions/auth';
 
 import { firebase, googleAuthProvider } from '../../../firebase/firebase';
 
-export default () => next => action => {
+export default () => next => (action) => {
     next(action);
 
     switch (action.type) {
         case FETCH_USER:
-            firebase.auth().onAuthStateChanged(user => {
+            firebase.auth().onAuthStateChanged((user) => {
                 console.log(user);
                 next(setUser({ user }));
             });

@@ -7,7 +7,9 @@ const PostItem = ({ item, authenticated }) => (
         <div className="blog-post-preview">
             <h1 className="blog-post-preview__title">{item.title}</h1>
             <p className="blog-post-preview__subtitle">
-                Published by {item.author}
+                Published by
+                {' '}
+                {item.author}
             </p>
             {/* {item.image ? (
                 <div className="blog-post-preview__media">
@@ -47,9 +49,9 @@ PostItem.propTypes = {
         title: PropTypes.string,
         author: PropTypes.string,
         description: PropTypes.string,
-        content: PropTypes.string
+        content: PropTypes.string,
     }),
-    authenticated: PropTypes.bool
+    authenticated: PropTypes.bool,
 };
 
 export default PostItem;

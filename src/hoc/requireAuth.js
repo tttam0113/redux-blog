@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export default WrappedComponent => {
+export default (WrappedComponent) => {
     class ComposedComponent extends React.Component {
         componentDidMount() {
             this.shouldNavigateAway();
@@ -24,7 +24,7 @@ export default WrappedComponent => {
 
     const mapStateToProps = (state, ownProps) => ({
         authenticated: !!state.auth.user && !!state.auth.user.uid,
-        ...ownProps
+        ...ownProps,
     });
 
     return connect(mapStateToProps)(ComposedComponent);

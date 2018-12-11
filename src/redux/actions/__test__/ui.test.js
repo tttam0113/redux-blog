@@ -7,7 +7,7 @@ describe('setLoader', () => {
         expect(action).toEqual({
             type: `[Feature] ${SET_LOADER}`,
             payload: false,
-            meta: { feature: '[Feature]' }
+            meta: { feature: '[Feature]' },
         });
     });
 
@@ -17,7 +17,7 @@ describe('setLoader', () => {
         expect(action).toEqual({
             type: `[Feature] ${SET_LOADER}`,
             payload: true,
-            meta: { feature: '[Feature]' }
+            meta: { feature: '[Feature]' },
         });
     });
 });

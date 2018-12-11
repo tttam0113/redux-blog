@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ContentPageContent = ({children}) => (
+const ContentPageContent = ({ children }) => (
     <div className="blog-content-page__content">
         {children}
     </div>

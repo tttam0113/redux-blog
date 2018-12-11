@@ -14,7 +14,7 @@ const Avatar = ({ avatar, displayName, onClick }) => (
 Avatar.propTypes = {
     avatar: PropTypes.string,
     displayName: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
 };
 
 export default Avatar;

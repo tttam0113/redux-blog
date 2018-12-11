@@ -5,7 +5,7 @@ const initialState = {
     id: '',
     title: '',
     content: '',
-    link: ''
+    link: '',
 };
 
 export default (postDetail = initialState, action) => {
@@ -13,7 +13,7 @@ export default (postDetail = initialState, action) => {
         case SET_POST:
             return {
                 ...postDetail,
-                ...action.payload
+                ...action.payload,
             };
         default:
             return postDetail;

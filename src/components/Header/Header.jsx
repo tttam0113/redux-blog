@@ -15,7 +15,7 @@ const Header = ({ login, logout, user }) => (
 Header.propTypes = {
     login: PropTypes.func,
     logout: PropTypes.func,
-    user: PropTypes.object
+    user: PropTypes.object,
 };
 
 export default Header;

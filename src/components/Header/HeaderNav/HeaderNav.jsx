@@ -34,10 +34,10 @@ import UserMenu from '../User/UserMenu';
 
 class HeaderNav extends React.Component {
     state = {
-        userMenuVisible: false
+        userMenuVisible: false,
     };
 
-    setUserMenuVisible = value => {
+    setUserMenuVisible = (value) => {
         this.setState(() => ({ userMenuVisible: value }));
     };
 
@@ -68,7 +68,7 @@ class HeaderNav extends React.Component {
                             displayName={user.displayName}
                             onClick={() => {
                                 this.setUserMenuVisible(
-                                    !this.state.userMenuVisible
+                                    !this.state.userMenuVisible,
                                 );
                             }}
                         />
@@ -89,7 +89,7 @@ class HeaderNav extends React.Component {
 HeaderNav.propTypes = {
     login: PropTypes.func,
     logout: PropTypes.func,
-    user: PropTypes.object
+    user: PropTypes.object,
 };
 
 export default HeaderNav;

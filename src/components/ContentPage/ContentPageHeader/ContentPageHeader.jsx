@@ -10,7 +10,7 @@ const ContentPageHeader = ({ title, subtitle }) => (
 
 ContentPageHeader.propTypes = {
     title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired
+    subtitle: PropTypes.string.isRequired,
 };
 
 export default ContentPageHeader;

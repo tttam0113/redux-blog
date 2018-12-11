@@ -1,11 +1,9 @@
-const mockResponse = (status, statusText, response) => {
-    return new window.Response(response, {
-        status: status,
-        statusText: statusText,
-        headers: {
-            'Content-type': 'application/json'
-        }
-    });
-};
+const mockResponse = (status, statusText, response) => new window.Response(response, {
+    status,
+    statusText,
+    headers: {
+        'Content-type': 'application/json',
+    },
+});
 
 export default mockResponse;

@@ -9,21 +9,21 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const SET_USER = 'SET_USER';
 
 export const login = () => ({
-    type: LOGIN
+    type: LOGIN,
 });
 
 export const logout = () => ({
-    type: LOGOUT
+    type: LOGOUT,
 });
 
 export const setUser = ({ user }) => ({
     type: SET_USER,
     payload: user,
-    meta: {}
+    meta: {},
 });
 
 export const fetchUser = () => ({
     type: FETCH_USER,
     payload: null,
-    meta: {}
+    meta: {},
 });

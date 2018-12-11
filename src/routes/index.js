@@ -11,7 +11,7 @@ const indexRoutes = [
     {
         path: '/',
         component: PostsListView,
-        exact: true
+        exact: true,
     },
     {
         path: '/posts/new',
@@ -20,12 +20,12 @@ const indexRoutes = [
     },
     {
         path: '/posts/edit/:postId',
-        component: requireAuth(PostsEditView)
+        component: requireAuth(PostsEditView),
     },
     {
         path: '/posts/:postId',
-        component: PostDetailView
-    }
+        component: PostDetailView,
+    },
 ];
 
 export default indexRoutes;

@@ -9,12 +9,12 @@ import { getPostDetail } from '../redux/selectors/posts';
 
 const mapStateToProps = state => ({
     loading: getPostDetailLoading(state),
-    post: getPostDetail(state)
+    post: getPostDetail(state),
 });
 
 const mapDispatchToProps = { fetchPost };
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(PostDetail);

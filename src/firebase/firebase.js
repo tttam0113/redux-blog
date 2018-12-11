@@ -8,7 +8,7 @@ const config = {
     databaseURL: 'https://blog-b2fda.firebaseio.com',
     projectId: 'blog-b2fda',
     storageBucket: 'blog-b2fda.appspot.com',
-    messagingSenderId: '238091125488'
+    messagingSenderId: '238091125488',
 };
 
 firebase.initializeApp(config);

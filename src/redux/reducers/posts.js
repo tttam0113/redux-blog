@@ -3,7 +3,7 @@ import { SET_POSTS } from '../actions/posts';
 const initialState = {
     currentPage: 0,
     totalItems: 0,
-    items: []
+    items: [],
 };
 
 export default (posts = initialState, action) => {
@@ -11,7 +11,7 @@ export default (posts = initialState, action) => {
         case SET_POSTS:
             return {
                 ...posts,
-                items: action.payload
+                items: action.payload,
             };
         default:
             return posts;

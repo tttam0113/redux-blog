@@ -2,13 +2,15 @@ export const FIREBASE_API_REQUEST = 'FIREBASE_API_REQUEST';
 export const FIREBASE_API_SUCCESS = 'FIREBASE_API_SUCCESS';
 export const FIREBASE_API_FAILURE = 'FIREBASE_API_FAILURE';
 
-export const firebaseApiRequest = ({ ref, method, data = {}, feature }) => ({
+export const firebaseApiRequest = ({
+    ref, method, data = {}, feature,
+}) => ({
     type: `${feature} ${FIREBASE_API_REQUEST}`,
     payload: { ref, data },
     meta: {
         method,
-        feature
-    }
+        feature,
+    },
 });
 
 export const firebaseApiSuccess = ({ response, data, feature }) => ({
@@ -16,8 +18,8 @@ export const firebaseApiSuccess = ({ response, data, feature }) => ({
     payload: response,
     meta: {
         data,
-        feature
-    }
+        feature,
+    },
 });
 
 export const firebaseApiFailure = ({ error, data, feature }) => ({
@@ -25,6 +27,6 @@ export const firebaseApiFailure = ({ error, data, feature }) => ({
     payload: error,
     meta: {
         data,
-        feature
-    }
+        feature,
+    },
 });

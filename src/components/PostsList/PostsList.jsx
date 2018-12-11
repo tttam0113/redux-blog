@@ -37,13 +37,13 @@ PostsList.propTypes = {
     fetchPosts: PropTypes.func.isRequired,
     authenticated: PropTypes.bool,
     loading: PropTypes.bool,
-    items: PropTypes.array
+    items: PropTypes.arrayOf(PropTypes.object),
 };
 
 PostsList.defaultProps = {
     authenticated: false,
     loading: false,
-    items: []
+    items: [],
 };
 
 export default PostsList;

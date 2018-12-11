@@ -6,7 +6,7 @@ import { updatePost, fetchPost } from '../redux/actions/postDetail';
 
 import {
     getPostDetailLoading,
-    getPostDetailUpdating
+    getPostDetailUpdating,
 } from '../redux/selectors/ui';
 import { getPostDetail } from '../redux/selectors/posts';
 
@@ -14,12 +14,12 @@ const mapStateToProps = state => ({
     // post: state.posts.items.find(p => p.id === props.match.params.postId)
     loading: getPostDetailLoading(state),
     updating: getPostDetailUpdating(state),
-    post: getPostDetail(state)
+    post: getPostDetail(state),
 });
 
 const mapDispatchToProps = { fetchPost, updatePost };
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(PostsEditPage);

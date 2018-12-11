@@ -5,7 +5,7 @@ it('should set default state', () => {
     expect(state).toEqual({
         posts: { loading: false },
         postDetail: { loading: false, deleting: false },
-        postForm: { submitting: false }
+        postForm: { submitting: false },
     });
 });
 

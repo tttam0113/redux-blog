@@ -4,7 +4,7 @@ import {
     API_ERROR,
     apiRequest,
     apiError,
-    apiSuccess
+    apiSuccess,
 } from 'redux/actions/api';
 
 describe('apiRequest', () => {
@@ -14,22 +14,22 @@ describe('apiRequest', () => {
             url: 'http://localhost:3000/api',
             data: {
                 key1: 'value1',
-                key2: 'value2'
+                key2: 'value2',
             },
-            feature: '[Feature]'
+            feature: '[Feature]',
         });
 
         expect(action).toEqual({
             type: `[Feature] ${API_REQUEST}`,
             payload: {
                 key1: 'value1',
-                key2: 'value2'
+                key2: 'value2',
             },
             meta: {
                 method: 'GET',
                 url: 'http://localhost:3000/api',
-                feature: '[Feature]'
-            }
+                feature: '[Feature]',
+            },
         });
     });
 });
@@ -41,9 +41,9 @@ describe('apiSuccess', () => {
             response,
             data: {
                 key1: 'value1',
-                key2: 'value2'
+                key2: 'value2',
             },
-            feature: '[Feature]'
+            feature: '[Feature]',
         });
 
         expect(action).toEqual({
@@ -52,10 +52,10 @@ describe('apiSuccess', () => {
             meta: {
                 data: {
                     key1: 'value1',
-                    key2: 'value2'
+                    key2: 'value2',
                 },
-                feature: '[Feature]'
-            }
+                feature: '[Feature]',
+            },
         });
     });
 });
@@ -67,9 +67,9 @@ describe('apiError', () => {
             error,
             data: {
                 key1: 'value1',
-                key2: 'value2'
+                key2: 'value2',
             },
-            feature: '[Feature]'
+            feature: '[Feature]',
         });
 
         expect(action).toEqual({
@@ -78,10 +78,10 @@ describe('apiError', () => {
             meta: {
                 data: {
                     key1: 'value1',
-                    key2: 'value2'
+                    key2: 'value2',
                 },
-                feature: '[Feature]'
-            }
+                feature: '[Feature]',
+            },
         });
     });
 });

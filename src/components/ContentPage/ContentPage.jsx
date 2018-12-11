@@ -12,7 +12,7 @@ const ContentPage = ({ title, subtitle, children }) => (
 
 ContentPage.propTypes = {
     title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired
+    subtitle: PropTypes.string.isRequired,
 };
 
 export default ContentPage;

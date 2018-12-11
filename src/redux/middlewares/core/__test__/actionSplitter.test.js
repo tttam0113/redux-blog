@@ -1,9 +1,10 @@
+import mockMiddleware from 'tests/__mocks__/mockMiddleware';
 import actionSplitterMiddleware from '../actionSplitter';
 
-import mockMiddleware from 'tests/__mocks__/mockMiddleware';
 
 const create = mockMiddleware(actionSplitterMiddleware);
-let next, invoke;
+let next; let
+    invoke;
 
 beforeEach(() => {
     const res = create();
@@ -24,14 +25,14 @@ describe('actionSplitterMiddleware', () => {
         const actions = [
             { type: 'TEST 1' },
             { type: 'TEST 2' },
-            { type: 'TEST 3' }
+            { type: 'TEST 3' },
         ];
 
         invoke(actions);
 
         expect(next).toHaveBeenCalledTimes(actions.length);
 
-        actions.forEach(action => {
+        actions.forEach((action) => {
             expect(next).toHaveBeenCalledWith(action);
         });
     });

@@ -1,9 +1,10 @@
+import * as Methods from 'firebase/methods';
 import {
     FEATURE,
     CLEAR_POSTS,
     FETCH_POSTS,
     setPosts,
-    clearPosts
+    clearPosts,
 } from '../../actions/posts';
 // import { apiRequest, API_SUCCESS } from '../../actions/api';
 import {
@@ -12,9 +13,8 @@ import {
 } from '../../actions/firebaseApi';
 import { setPostsLoading } from '../../actions/ui';
 
-import * as Methods from 'firebase/methods';
 
-export default ({ dispatch }) => next => action => {
+export default ({ dispatch }) => next => (action) => {
     next(action);
 
     switch (action.type) {
@@ -29,9 +29,9 @@ export default ({ dispatch }) => next => action => {
                     ref: 'posts',
                     method: Methods.ONCE_VALUE,
                     data: {},
-                    feature: FEATURE
+                    feature: FEATURE,
                 }),
-                setPostsLoading({ state: true, feature: FEATURE })
+                setPostsLoading({ state: true, feature: FEATURE }),
             ]);
             break;
         // case `${FEATURE} ${API_SUCCESS}`:
@@ -43,10 +43,10 @@ export default ({ dispatch }) => next => action => {
         case `${FEATURE} ${FIREBASE_API_SUCCESS}`: {
             const snapshot = action.payload;
             const posts = [];
-            snapshot.forEach(childSnapshot => {
+            snapshot.forEach((childSnapshot) => {
                 posts.push({
                     id: childSnapshot.key,
-                    ...childSnapshot.val()
+                    ...childSnapshot.val(),
                 });
             });
             next([setPosts({ posts }), setPostsLoading({ state: false })]);

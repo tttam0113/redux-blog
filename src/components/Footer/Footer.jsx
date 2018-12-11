@@ -1,4 +1,5 @@
 import React from 'react';
+
 const GithubIcon = () => (
     <svg viewBox="0 0 496 512">
         <path

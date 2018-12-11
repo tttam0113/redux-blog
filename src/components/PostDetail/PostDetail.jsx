@@ -37,7 +37,8 @@ class PostDetail extends React.Component {
                                     Edit
                                 </Link>
                             </div>
-                            <ReactMarkdown className="blog-post-detail__content markdown-element">
+                            <ReactMarkdown 
+                                className="blog-post-detail__content markdown-element">
                                 {post.content.replace(/<br\/>/gi, '\n')}
                             </ReactMarkdown>
                         </React.Fragment>
@@ -52,7 +53,7 @@ PostDetail.propTypes = {
     fetchPost: PropTypes.func.isRequired,
     loading: PropTypes.bool,
     post: PropTypes.object,
-    match: PropTypes.object
+    match: PropTypes.object,
 };
 
 export default PostDetail;

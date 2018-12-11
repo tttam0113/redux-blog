@@ -1,9 +1,10 @@
+import mockMiddleware from 'tests/__mocks__/mockMiddleware';
 import loggerMiddleware from '../logger';
 
-import mockMiddleware from 'tests/__mocks__/mockMiddleware';
 
 const create = mockMiddleware(loggerMiddleware);
-let getState, next, invoke;
+let getState; let next; let
+    invoke;
 
 describe('loggerMiddleware', () => {
     beforeEach(() => {
@@ -13,7 +14,6 @@ describe('loggerMiddleware', () => {
         invoke = res.invoke;
 
         process.env.NODE_ENV = 'development';
-
     });
 
     it('should pass through any action object', () => {

@@ -10,7 +10,7 @@ class PostsEditPage extends React.Component {
         this.props.fetchPost({ postId });
     }
 
-    onSubmit = update => {
+    onSubmit = (update) => {
         const { postId } = this.props.match.params;
         this.props.updatePost({ id: postId, update });
     };
@@ -39,12 +39,11 @@ PostsEditPage.propTypes = {
     match: PropTypes.object,
     post: PropTypes.object,
     updatePost: PropTypes.func,
-    
 };
 
 PostsEditPage.defaultProps = {
     loading: false,
-    post: undefined
+    post: undefined,
 };
 
 export default PostsEditPage;
