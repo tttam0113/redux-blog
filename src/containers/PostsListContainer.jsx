@@ -4,13 +4,13 @@ import { fetchPosts } from '../redux/actions/posts';
 import PostList from '../components/PostsList';
 
 const mapStateToProps = state => ({
-    loading: state.ui.posts.loading,
-    items: state.posts.items,
+  loading: state.ui.posts.loading,
+  items: state.posts.items,
 });
 
 const mapDispatchToProps = { fetchPosts };
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
+  mapStateToProps,
+  mapDispatchToProps,
 )(PostList);

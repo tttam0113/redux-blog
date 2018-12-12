@@ -10,37 +10,37 @@ export const EDIT_POST = `${FEATURE} EDIT_POST`;
 export const SET_POST = `${FEATURE} SET_POST`;
 
 export const fetchPost = ({ postId }) => ({
-    type: FETCH_POST,
-    payload: { postId },
-    meta: { feature: FEATURE },
+  type: FETCH_POST,
+  payload: { postId },
+  meta: { feature: FEATURE },
 });
 
 export const clearPost = () => ({
-    type: CLEAR_POST,
-    payload: null,
-    meta: { feature: FEATURE },
+  type: CLEAR_POST,
+  payload: null,
+  meta: { feature: FEATURE },
 });
 
 export const updatePost = ({ id, update }) => ({
-    type: UPDATE_POST,
-    payload: { id, update },
-    meta: { feature: FEATURE },
+  type: UPDATE_POST,
+  payload: { id, update },
+  meta: { feature: FEATURE },
 });
 
 export const removePost = ({ id }) => ({
-    type: REMOVE_POST,
-    payload: id,
-    meta: { feature: FEATURE },
+  type: REMOVE_POST,
+  payload: id,
+  meta: { feature: FEATURE },
 });
 
 export const addPost = ({ post }) => ({
-    type: ADD_POST,
-    payload: post,
-    meta: { feature: FEATURE },
+  type: ADD_POST,
+  payload: post,
+  meta: { feature: FEATURE },
 });
 
 export const setPost = ({ post }) => ({
-    type: SET_POST,
-    payload: post,
-    meta: { feature: FEATURE },
+  type: SET_POST,
+  payload: post,
+  meta: { feature: FEATURE },
 });

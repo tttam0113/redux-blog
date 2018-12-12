@@ -4,21 +4,21 @@ export const FETCH_USER = 'FETCH_USER';
 export const SET_USER = 'SET_USER';
 
 export const login = () => ({
-    type: LOGIN,
+  type: LOGIN,
 });
 
 export const logout = () => ({
-    type: LOGOUT,
+  type: LOGOUT,
 });
 
 export const setUser = ({ user }) => ({
-    type: SET_USER,
-    payload: user,
-    meta: {},
+  type: SET_USER,
+  payload: user,
+  meta: {},
 });
 
 export const fetchUser = () => ({
-    type: FETCH_USER,
-    payload: null,
-    meta: {},
+  type: FETCH_USER,
+  payload: null,
+  meta: {},
 });

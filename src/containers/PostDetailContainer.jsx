@@ -5,13 +5,13 @@ import { getPostDetailLoading } from '../redux/selectors/ui';
 import { getPostDetail } from '../redux/selectors/posts';
 
 const mapStateToProps = state => ({
-    loading: getPostDetailLoading(state),
-    post: getPostDetail(state),
+  loading: getPostDetailLoading(state),
+  post: getPostDetail(state),
 });
 
 const mapDispatchToProps = { fetchPost };
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
+  mapStateToProps,
+  mapDispatchToProps,
 )(PostDetail);

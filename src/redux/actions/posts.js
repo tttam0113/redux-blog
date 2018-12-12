@@ -8,31 +8,31 @@ export const SET_POSTS = `${FEATURE} SET_POSTS`;
 export const SET_MORE_POSTS = `${FEATURE} SET_MORE_POSTS`;
 
 export const fetchPosts = () => ({
-    type: FETCH_POSTS,
-    payload: {},
-    meta: { feature: FEATURE },
+  type: FETCH_POSTS,
+  payload: {},
+  meta: { feature: FEATURE },
 });
 
 export const fetchMorePosts = () => ({
-    type: FETCH_MORE_POSTS,
-    payload: {},
-    meta: { feature: FEATURE },
+  type: FETCH_MORE_POSTS,
+  payload: {},
+  meta: { feature: FEATURE },
 });
 
 export const clearPosts = () => ({
-    type: CLEAR_POSTS,
-    payload: null,
-    meta: { feature: FEATURE },
+  type: CLEAR_POSTS,
+  payload: null,
+  meta: { feature: FEATURE },
 });
 
 export const setPosts = ({ posts }) => ({
-    type: SET_POSTS,
-    payload: posts,
-    meta: { feature: FEATURE },
+  type: SET_POSTS,
+  payload: posts,
+  meta: { feature: FEATURE },
 });
 
 export const setMorePosts = ({ posts }) => ({
-    type: SET_MORE_POSTS,
-    payload: posts,
-    meta: { feature: FEATURE },
+  type: SET_MORE_POSTS,
+  payload: posts,
+  meta: { feature: FEATURE },
 });
