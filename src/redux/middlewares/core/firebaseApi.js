@@ -11,7 +11,12 @@ export default ({ dispatch }) => next => action => {
 
   if (action.type.includes(FIREBASE_API_REQUEST)) {
     const { ref: db, data } = action.payload;
-    const { method, feature } = action.meta;
+    const {
+      method,
+      feature,
+      resolve: actionResolve = () => {},
+      reject: actionReject = () => {},
+    } = action.meta;
     const dbRef = database.ref(db);
     const successCallback = snapshot => {
       dispatch(
@@ -21,6 +26,7 @@ export default ({ dispatch }) => next => action => {
           feature,
         }),
       );
+      actionResolve();
     };
 
     const errorCallback = error => {
@@ -31,6 +37,7 @@ export default ({ dispatch }) => next => action => {
           feature,
         }),
       );
+      actionReject();
     };
 
     switch (method) {

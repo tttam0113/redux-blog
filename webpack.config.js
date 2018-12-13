@@ -67,9 +67,9 @@ module.exports = env => {
           }),
         },
         {
-          test: /\.svg$/,
+          test: /\.md$/,
           exclude: [/\.(js|mjs|jsx)$/, /\.html$/, /\.json$/],
-          loader: 'file-loader',
+          loader: 'raw-loader',
         },
       ],
     },

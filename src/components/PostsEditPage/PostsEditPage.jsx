@@ -5,8 +5,11 @@ import Spinner from '../Spinner';
 
 class PostsEditPage extends React.Component {
   componentDidMount() {
+    const { post } = this.props;
     const { postId } = this.props.match.params;
-    this.props.fetchPost({ postId });
+    if (!post || post.id !== postId) {
+      this.props.fetchPost({ postId });
+    }
   }
 
   handleOnSubmit = update => {

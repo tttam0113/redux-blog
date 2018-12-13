@@ -46,6 +46,7 @@ module.exports = {
       {
         ignoreUrls: true,
         ignoreComments: true,
+        ignoreStrings: true
       },
     ], // airbnb is allowing some edge cases
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off', // airbnb is using warn

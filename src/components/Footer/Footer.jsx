@@ -1,4 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+// import GithubIcon from 'assets/github-brands.svg';
+// import FacebookIcon from 'assets/facebook-brands.svg';
+// import MailIcon from 'assets/envelope-solid.svg';
 
 const GithubIcon = () => (
   <svg viewBox="0 0 496 512">
@@ -27,20 +32,27 @@ const MailIcon = () => (
   </svg>
 );
 
+const IconItem = ({ icon: ComponentIcon }) => (
+  <li>
+    <ComponentIcon />
+  </li>
+);
+IconItem.propTypes = {
+  icon: PropTypes.func.isRequired,
+};
+
+const IconList = () => (
+  <ul className="blog-footer__content">
+    <IconItem icon={GithubIcon} />
+    <IconItem icon={FacebookIcon} />
+    <IconItem icon={MailIcon} />
+  </ul>
+);
+
 const Footer = () => (
   <footer className="blog-footer">
     <div>
-      <ul className="blog-footer__content">
-        <li>
-          <GithubIcon />
-        </li>
-        <li>
-          <FacebookIcon />
-        </li>
-        <li>
-          <MailIcon />
-        </li>
-      </ul>
+      <IconList />
       <p>Developed by TamTT © 2018 </p>
     </div>
   </footer>

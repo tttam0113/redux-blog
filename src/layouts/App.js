@@ -17,31 +17,29 @@ class App extends React.Component {
     this.props.fetchUser();
   }
 
-  render() {
-    return (
-      <Router history={history}>
-        <div className="blog-page-wrap">
-          <div className="blog-page-wrap__container">
-            <Header />
-            <Switch>
-              {indexRoutes.map(prop =>
-                prop.redirect ? (
-                  <Redirect from={prop.path} to={prop.pathTo} key={prop.name} />
-                ) : (
-                  <Route
-                    path={prop.path}
-                    component={prop.component}
-                    key={prop.name}
-                    exact={prop.exact || false}
-                  />
-                ),
-              )}
-            </Switch>
-          </div>
-          <Footer />
-        </div>
-      </Router>
+  renderRoute = prop => {
+    const { name, path, pathTo, component, redirect = false, exact = false } = prop;
+    return redirect ? (
+      <Redirect from={path} to={pathTo} key={name} />
+    ) : (
+      <Route path={path} component={component} key={name} exact={exact} />
     );
+  };
+
+  switchRoutes = () => <Switch>{indexRoutes.map(this.renderRoute)}</Switch>;
+
+  renderLayout = () => (
+    <div className="blog-page-wrap">
+      <div className="blog-page-wrap__container">
+        <Header />
+        {this.switchRoutes()}
+      </div>
+      <Footer />
+    </div>
+  );
+
+  render() {
+    return <Router history={history}>{this.renderLayout()}</Router>;
   }
 }
 

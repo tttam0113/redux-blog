@@ -4,12 +4,16 @@ import TextField from '../TextField';
 class PostsForm extends React.Component {
   constructor(props) {
     super(props);
+
+    const { post = {} } = this.props;
+    const { title = '', author = '', description = '', content = '', link = '' } = post;
+
     this.state = {
-      title: props.post ? props.post.title : '',
-      author: props.post ? props.post.author : '',
-      description: props.post ? props.post.description : '',
-      content: props.post ? props.post.content.replace(/<br\/>/gi, '\n') : '',
-      link: props.post ? props.post.link : '',
+      title,
+      author,
+      description,
+      link,
+      content: content.replace(/<br\/>/gi, '\n'),
     };
 
     this.formFields = [
@@ -66,24 +70,32 @@ class PostsForm extends React.Component {
     }
   };
 
+  renderFields = () => (
+    <div className="blog-post-form__content">
+      {this.formFields.map(field => (
+        <TextField
+          {...field}
+          key={field.name}
+          value={this.state[field.name]}
+          onChange={this.handleOnChange}
+        />
+      ))}
+    </div>
+  );
+
+  renderActions = () => (
+    <div className="blog-post-form__action">
+      <button className="btn btn--secondary" type="submit">
+        Save Post
+      </button>
+    </div>
+  );
+
   render() {
     return (
       <form onSubmit={this.handleOnSubmit}>
-        <div className="blog-post-form__content">
-          {this.formFields.map(field => (
-            <TextField
-              {...field}
-              key={field.name}
-              value={this.state[field.name]}
-              onChange={this.handleOnChange}
-            />
-          ))}
-        </div>
-        <div className="blog-post-form__action">
-          <button className="btn btn--secondary" type="submit">
-            Save Post
-          </button>
-        </div>
+        {this.renderFields()}
+        {this.renderActions()}
       </form>
     );
   }

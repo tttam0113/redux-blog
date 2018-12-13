@@ -6,21 +6,21 @@ import firebaseApiMiddleware from '../firebaseApi';
 
 const create = mockMiddleware(firebaseApiMiddleware);
 
-let next; let
-    invoke;
+let next;
+let invoke;
 beforeEach(() => {
-    const res = create();
-    // dispatch = res.store.dispatch;
-    next = res.next;
-    invoke = res.invoke;
+  const res = create();
+  // dispatch = res.store.dispatch;
+  next = res.next;
+  invoke = res.invoke;
 });
 
 it('should pass through any action', () => {
-    const action = { type: 'TEST' };
+  const action = { type: 'TEST' };
 
-    invoke(action);
+  invoke(action);
 
-    expect(next).toHaveBeenCalledWith(action);
+  expect(next).toHaveBeenCalledWith(action);
 });
 
 // it('should push data to firebase database', (done) => {

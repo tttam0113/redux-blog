@@ -7,31 +7,42 @@ import Spinner from '../Spinner';
 
 class PostDetail extends React.Component {
   componentDidMount() {
+    const { post } = this.props;
     const { postId } = this.props.match.params;
-    this.props.fetchPost({ postId });
+    if (!post || post.id !== postId) {
+      this.props.fetchPost({ postId });
+    }
   }
 
+  renderActions = postId => (
+    <div className="blog-post-detail__actions">
+      <Link to="/posts/new" className="btn btn--secondary">
+        Create new post
+      </Link>
+      <Link to={`/posts/edit/${postId}`} className="btn btn--secondary">
+        Edit
+      </Link>
+    </div>
+  );
+
+  renderPostContent = postContent => (
+    <ReactMarkdown className="blog-post-detail__content markdown-element">
+      {postContent.replace(/<br\/>/gi, '\n')}
+    </ReactMarkdown>
+  );
+
   render() {
-    const { loading, post } = this.props;
-    const title = post && post.title ? post.title : '';
-    const subtitle = post && post.author ? `Published by ${post.author}` : '';
+    const { loading, post = {} } = this.props;
+    const { id = '', content = '', title = '', author = 'Unknown' } = post;
+    const subtitle = `Published by ${author}`;
     return (
       <ContentPage title={title} subtitle={subtitle}>
         <div className="blog-post-detail">
           {loading ? <Spinner /> : null}
-          {post && post.content ? (
+          {content ? (
             <React.Fragment>
-              <div className="blog-post-detail__actions">
-                <Link to="/posts/new" className="btn btn--secondary">
-                  Create new post
-                </Link>
-                <Link to={`/posts/edit/${post.id}`} className="btn btn--secondary">
-                  Edit
-                </Link>
-              </div>
-              <ReactMarkdown className="blog-post-detail__content markdown-element">
-                {post.content.replace(/<br\/>/gi, '\n')}
-              </ReactMarkdown>
+              {this.renderActions(id)}
+              {this.renderPostContent(content)}
             </React.Fragment>
           ) : null}
         </div>
@@ -42,9 +53,13 @@ class PostDetail extends React.Component {
 
 PostDetail.propTypes = {
   fetchPost: PropTypes.func.isRequired,
-  loading: PropTypes.bool,
-  match: PropTypes.object,
+  loading: PropTypes.bool.isRequired,
+  match: PropTypes.object.isRequired,
   post: PropTypes.object,
+};
+
+PostDetail.defaultProps = {
+  post: {},
 };
 
 export default PostDetail;
